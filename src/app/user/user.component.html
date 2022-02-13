@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="form-element" hideRequiredMarker>
+      <input matInput placeholder="username" [formControlName]="'username'">
+      <mat-error *ngIf="!registerForm.controls['username'].valid && registerForm.controls['username'].touched">
+        {{ getErrorUsername() }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element" hideRequiredMarker>
+      <input matInput placeholder="password" [formControlName]="'password'">
+      <mat-error *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+        {{ getErrorPassword() }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!registerForm.valid">Register
+      </button>
+    </div>
+    <h2 class="form-element">{{output}}</h2>
+  </form>
+</div>
